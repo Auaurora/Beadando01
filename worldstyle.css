@@ -19,8 +19,6 @@ ul {
     margin: 0;
     width:100%;
     list-style-type:none; 
-   
-  
 }
 
 li{
@@ -47,4 +45,13 @@ nav {
     overflow: auto; 
     text-align:center;
     border-top:2px solid white;
+}
+
+aside {
+    float:left;
+    width: 30%;
+}
+
+div {
+    padding: 50px;
 }

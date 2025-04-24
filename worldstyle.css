@@ -1,0 +1,50 @@
+header, footer{
+    padding: 15px;
+    width:100%;
+    margin:0px;
+    color:white;
+    background-color:navy;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+}
+
+footer {
+    position:fixed;
+    left:0;
+    bottom:0;
+}
+
+ul {
+    padding:0;
+    margin: 0;
+    width:100%;
+    list-style-type:none; 
+   
+  
+}
+
+li{
+    display:inline;
+    float: left;
+    width:16%;
+    
+}
+
+a {
+    background-color: transparent;
+}
+
+a:active {
+    background-color: rgb(0, 0, 100);
+}
+nav {
+    width: 100%;
+    left:0;
+    padding: 40px;
+    color:white;
+    background-color:navy;
+    font-family: Verdana, sans-serif;
+    overflow: auto; 
+    text-align:center;
+    border-top:2px solid white;
+}

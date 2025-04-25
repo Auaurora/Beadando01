@@ -75,6 +75,34 @@
                     <td></td>
                 </tr>
             </table>
+            <div><input type="submit" value="Ábrázol"></div>
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              
+              <script>
+                const ctx = document.getElementById('myChart');
+              
+                new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                  labels: ['I.','II.','III.','IV.','V.'],
+                  datasets: [{
+                    data: [12, 19, 3, 5, 2, 3],
+                     }]
+                },
+                options: {
+                 scales: {
+                 y: {
+                 beginAtZero: true
+                     }
+                        }
+                 }
+                 });
+              </script>
+              
         </div>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="worldstyle.css">
         <link type="text/css" rel="stylesheet" href="tstyle.css">
-        <title>Web programozás I Előadás Házi Feladat</title>
+        <title>Web programozás I Előadás Házi Feladat</title>    
     </head>
     <body>
         <header>
@@ -25,6 +25,7 @@
             <h1>ChartJS</h1>
         </aside>
         <div>
+            <form name="form1">
             <table style="width:60%;">
                 <tr>
                     <th></th>
@@ -35,62 +36,85 @@
                     <th>V.</th>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="A" value="1" checked="checked"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="radio" name="sor" checked="checked"></td>
+                    <td>12</td>
+                    <td>19</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>2</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="A" value="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="radio" name="sor" ></td>
+                    <td>13</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>6</td>
+                    <td>7</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="A" value="3"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="radio" name="sor" ></td>
+                    <td>19</td>
+                    <td>3</td>
+                    <td>12</td>
+                    <td>19</td>
+                    <td>7</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="A" value="4"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="radio" name="sor" ></td>
+                    <td>9</td>
+                    <td>11</td>
+                    <td>8</td>
+                    <td>10</td>
+                    <td>16</td>
                 </tr>
                 <tr>
-                    <td><input type="radio" name="A" value="5"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><input type="radio" name="sor" ></td>
+                    <td>14</td>
+                    <td>18</td>
+                    <td>20</td>
+                    <td>17</td>
+                    <td>15</td>
                 </tr>
             </table>
-            <div><input type="submit" value="Ábrázol"></div>
+            <div><input onclick="chart();" type="button" name="show" value="Ábrázol"></div>
+            </form>
+            <script type="text/javascript">
+                function chart()
+                {
+                    switch(true)
+                    {
+                        case document.form1.sor[0].checked:
+                            document.getElementById('Chart1').style.visibility='visible'; break;
+                        case document.form1.sor[1].checked:
+                            document.getElementById('Chart2').style.visibility='visible'; break;
+                        case document.form1.sor[2].checked:
+                            document.getElementById('Chart3').style.visibility='visible'; break;
+                        case document.form1.sor[3].checked:
+                            document.getElementById('Chart4').style.visibility='visible'; break;
+                        case document.form1.sor[4].checked:
+                            document.getElementById('Chart5').style.visibility='visible'; break;
+                    }
+                }
+            </script>
             <div>
-                <canvas id="myChart"></canvas>
-              </div>
+                <canvas id="Chart1" style="visibility:hidden;"></canvas>
+                <canvas id="Chart2" style="visibility:hidden;"></canvas>
+                <canvas id="Chart3" style="visibility:hidden;"></canvas>
+                <canvas id="Chart4" style="visibility:hidden;"></canvas>
+                <canvas id="Chart5" style="visibility:hidden;"></canvas>
+            </div>
               
               <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
               
               <script>
-                const ctx = document.getElementById('myChart');
+                const c1 = document.getElementById('Chart1');
               
-                new Chart(ctx, {
+                new Chart(c1, {
                   type: 'line',
                   data: {
                   labels: ['I.','II.','III.','IV.','V.'],
                   datasets: [{
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: [12, 19, 3, 5, 2],
                      }]
                 },
                 options: {
@@ -102,7 +126,85 @@
                  }
                  });
               </script>
+              <script>
+                const c2 = document.getElementById('Chart2');
               
+                new Chart(c2, {
+                  type: 'line',
+                  data: {
+                  labels: ['I.','II.','III.','IV.','V.'],
+                  datasets: [{
+                    data: [13, 10, 11, 6, 7],
+                     }]
+                },
+                options: {
+                 scales: {
+                 y: {
+                 beginAtZero: true
+                     }
+                        }
+                 }
+                 });
+              </script>
+              <script>
+                const c3 = document.getElementById('Chart3');
+              
+                new Chart(c3, {
+                  type: 'line',
+                  data: {
+                  labels: ['I.','II.','III.','IV.','V.'],
+                  datasets: [{
+                    data: [19, 3, 12, 19, 7],
+                     }]
+                },
+                options: {
+                 scales: {
+                 y: {
+                 beginAtZero: true
+                     }
+                        }
+                 }
+                 });
+              </script>
+              <script>
+                const c4 = document.getElementById('Chart4');
+              
+                new Chart(c4, {
+                  type: 'line',
+                  data: {
+                  labels: ['I.','II.','III.','IV.','V.'],
+                  datasets: [{
+                    data: [9, 11, 8, 10, 16],
+                     }]
+                },
+                options: {
+                 scales: {
+                 y: {
+                 beginAtZero: true
+                     }
+                        }
+                 }
+                 });
+              </script><script>
+                const c5 = document.getElementById('Chart5');
+              
+                new Chart(c5, {
+                  type: 'line',
+                  data: {
+                  labels: ['I.','II.','III.','IV.','V.'],
+                  datasets: [{
+                    data: [14, 18, 20, 17, 15],
+                     }]
+                },
+                options: {
+                 scales: {
+                 y: {
+                 beginAtZero: true
+                     }
+                        }
+                 }
+                 });
+              </script>
         </div>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>

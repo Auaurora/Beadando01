@@ -5,6 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="worldstyle.css">
         <title>Web programozás I Előadás Házi Feladat</title>
+        <style>
+            #div1, #div2 {
+              float: left;
+              width: 100px;
+              height: 35px;
+              margin: 10px;
+              padding: 10px;
+              border: 1px solid #aaaaaa;
+            }
+            </style>
     </head>
     <body>
         <header>
@@ -24,6 +34,7 @@
             <h1>HTML5</h1>
         </aside>
         <div>
+            <div>
             <h2>Web Worker</h2>
             <p>Számolás: <output id="result"></output></p>
             <button onclick="startWorker()">Indít</button> 
@@ -51,7 +62,109 @@
             w = undefined;
             }
             </script>
+            </div>
+            <div>
+                <h2>Web Storage</h2>
+                <script>
+                    function clickCounter() {
+                      const x = document.getElementById("szam");
+                      if (typeof(Storage) !== "undefined") {
+                        if (localStorage.clickcount) {
+                          localStorage.clickcount = Number(localStorage.clickcount)+1;
+                        } else {
+                          localStorage.clickcount = 1;
+                        }
+                        x.innerHTML = "Kattintások száma: " + localStorage.clickcount;
+                      } else {
+                        x.innerHTML = "A böngésző nem támogatja a web storage API-t.";
+                      }
+                    }
+                </script>
+                <button onclick="clickCounter()" type="button">Számol</button>
+                <p id="szam"></p>
+            </div>
+            <div>
+                <h2>Geolocation</h2>
+                <button onclick="getLocation()">Koordinátáim</button>
+                <p id="demo"></p>
 
+                <script>
+                const x = document.getElementById("demo");
+
+                function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(success, error);
+                } else { 
+                    x.innerHTML = "A böngésző nem támogatja a Geolocation API-t.";
+                }
+                }
+
+                function success(position) {
+                x.innerHTML = "é.sz.:" + position.coords.latitude + 
+                "<br>k.h.: " + position.coords.longitude;
+                }
+
+                function error() {
+                alert("Nem érhető el a pozíció.");
+                }
+                </script>
+            </div>
+            <div>
+                <h2>Drag and Drop</h2>
+                <script>
+                    function dragstartHandler(ev) {
+                      ev.dataTransfer.setData("text", ev.target.id);
+                    }
+                    
+                    function dragoverHandler(ev) {
+                      ev.preventDefault();
+                    }
+                    
+                    function dropHandler(ev) {
+                      ev.preventDefault();
+                      const data = ev.dataTransfer.getData("text");
+                      ev.target.appendChild(document.getElementById(data));
+                    }
+                    </script>
+                    <div id="div1" ondrop="dropHandler(event)"   ondragover="dragoverHandler(event)">
+                        <img id="img1" src="lookinside.png" draggable="true" ondragstart="dragstartHandler(event)" width="88" height="31">
+                        </div> 
+                        <div id="div2" ondrop="dropHandler(event)"   ondragover="dragoverHandler(event)"></div>                        
+            </div>
+            <div>
+                <h2>Canvas</h2>
+                <canvas id="myCanvas" width="320" height="100" style="border:1px solid grey"></canvas>
+                    <script>
+                    const canvas = document.getElementById("myCanvas");
+                    const ctx = canvas.getContext("2d");
+                    ctx.shadowColor = "salmon";
+                    ctx.shadowOffsetX = 5;
+                    ctx.shadowOffsetY = 5;
+                    ctx.font = "50px Arial";
+                    ctx.fillStyle = "darkred";
+                    ctx.fillText("Teto Territory",10,60);
+                    </script>
+            </div>
+            <div>
+                <h2>Scaleable Vector Graphics</h2>
+                <svg height="130" width="500">
+                    <defs>
+                      <linearGradient id="grad1">
+                        <stop offset="0%" stop-color="yellow" />
+                        <stop offset="100%" stop-color="red" />
+                      </linearGradient>
+                    </defs>
+                    <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
+                  </svg>
+            </div>
+            <div style="font-family:'Courier New', Courier, monospace;">
+                <h2>Server Sent Events</h2>
+                <p>>"Can't use server scripting language"</p>
+                <p>>*Look inside*</p>
+                <p>>Server Sent Events</p>
+                <img src="lookinside.png" width="auto">
+            </div>
         </div>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>

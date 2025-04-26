@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="worldstyle.css">
         <link type="text/css" rel="stylesheet" href="tstyle.css">
+        <link type="text/css" rel="stylesheet" href="crudstyle.css">
         <title>Web programozás I Előadás Házi Feladat</title>
     </head>
     <body>
@@ -27,37 +28,33 @@
         <div>
             <table>
             <tr> 
-                <th>Vezeték név</th>
-                <th>Kereszt név</th>
+                <th>Vezetéknév</th>
+                <th>Keresztnév</th>
                 <th>Neptun kód</th>
                 <th>Gyakorlat időpontja</th>
+                <th>Műveltek</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <tbody id="nevsor">
+            </tbody>
             </table>
+            <div>
+                <form onsubmit="event.preventDefault();onFormSubmit();">
+                        <label>Vezetéknév:</label>
+                        <input type="text" name="vnev" id="vnev">
+                        <label>Keresztnév:</label>
+                        <input type="text" name="knev" id="knev">
+                        <label>Neptun kód:</label>
+                        <input type="text" name="nkod" id="nkod">
+                        <label>Gyakorlat időpontja:</label>
+                        <input type="text" name="ido" id="ido">
+                    </div>
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Hozzáad">
+                    </div>
+                </form>
+            </div>
         </div>
+        <script src="crud.js"></script>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>
 

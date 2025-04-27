@@ -25,7 +25,7 @@ function insertNewRecord(data) {
 }
 
 function printArray(){
-    var table = document.getElementById("nevsor").getElementsByTagName('tbody')[0];
+    var table = document.getElementById("nevsor");
     table.innerHTML="";
     var newRow;
     for (i = 0; i < array1.length; i++) {

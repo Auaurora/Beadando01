@@ -1,5 +1,5 @@
 code="X6N9YOabc123";
-url="http://gamf.nhely.hu/ajax1/";
+url="http://gamf.nhely.hu/ajax2/";
 async function read() {
   document.getElementById("code").innerHTML="code="+code;
   let response = await fetch(url, {

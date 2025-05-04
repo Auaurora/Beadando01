@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="worldstyle.css">
+        <script src="oojs.js"></script>
+        <title>Web programozás I Előadás Házi Feladat</title>
+    </head>
+    <body>
+        <header>
+            <h1>Web-programozás-1 Előadás Házi feladat</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Főoldal</a></li>
+                <li><a href="tablazat.html">Táblázat</a></li>
+                <li><a href="html5.html">HTML5</a></li>
+                <li><a href="ChartJS.html">ChartJS</a></li>
+                <li><a href="ajax.html">AJAX</a></li>
+                <li><a href="oojs.html">OOJS</a></li>
+            </ul>
+        </nav>
+        <aside>
+            <h1>OOJS</h1>
+        </aside>
+        <div>
+            <div>                
+                <h2>John Doe bankszámlája</h2>
+                <form onsubmit="Befizet1()">
+                    <label>Pénz befizetés</label>
+                    <input type="text" id="be1">
+                    <input type="submit" value="befizet">
+                </form>
+                <form onsubmit="Kifizet1()">
+                    <label>Pénz kifizetés</label>
+                    <input type="text" id="ki1">
+                    <input type="submit" value="kifizet">
+                </form>
+                <p>A jelenlegi egyenleg: <span id="show1"></span></p>
+                <input type="button" value="Mutasd" onclick="account1.getBalance('show1')">
+            </div>
+            <div>
+                <h2>Jane Smith bankszámlája</h2>
+                <form onsubmit="Befizet2()">
+                    <label>Pénz befizetés</label>
+                    <input type="text" id="be2">
+                    <input type="submit" value="befizet">
+                </form>
+                <form onsubmit="Kifizet2()">
+                    <label>Pénz kifizetés</label>
+                    <input type="text" id="ki2">
+                    <input type="submit" value="kifizet">
+                </form>
+                <p>A jelenlegi egyenleg: </p>
+                <span id="show2"></span>
+                <input type="button" value="Mutasd" onclick="account2.getBalance('show2');">
+            </div> 
+        </div>
+        <script>
+            function Befizet1()
+            {
+                let osszeg=parseInt(document.getElementById("be1").value);
+                account1.deposit(osszeg);
+            }
+            function Kifizet1()
+            {
+                let osszeg=parseInt(document.getElementById("ki1").value);
+                account1.withdraw(osszeg);
+            }
+            function Befizet2()
+            {
+                let osszeg=parseInt(document.getElementById("be2").value);
+                account1.deposit(osszeg);
+            }
+            function Kifizet2()
+            {
+                let osszeg=parseInt(document.getElementById("ki2").value);
+                account1.withdraw(osszeg);
+            }
+        </script>
+        <footer>Kovács Hajnalka X6N9YO</footer>
+    </body>
+
+</html>

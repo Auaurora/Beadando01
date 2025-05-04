@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link type="text/css" rel="stylesheet" href="worldstyle.css">
+        <script src="ajax.js"></script>
         <title>Web programozás I Előadás Házi Feladat</title>
     </head>
     <body>
@@ -23,8 +24,36 @@
         <aside>
             <h1>AJAX</h1>
         </aside>
-        <div>
-            
+        <div>     
+                <div>
+                    <div>
+                        <h1>Új elem hozzáadása</h1>
+                        <strong>Név</strong> (kötelező, max 30 karakter): <input id="name1" type="text" max="30" required></input><br>
+                        <strong>Város</strong> (kötelező, max 30 karakter): <input id="city1" type="text" max="30" required></input><br>
+                        <Strong>Telefonszám</strong> (kötelező, max 30 karakter): <input id="phone1" type="text" max="30" required></input><br>
+                        <button id="gomb" type="submit" onclick="create();">Hozzáadás</button><br>
+                        <div id = 'createResult'></div>
+                        <hr>
+                    </div> 
+                    <div id = 'updateDiv'>
+                        <h1>Módosítás</h1>
+                        <strong>ID</strong> (kötelező): <input id="idUpd" type="text" max="30" required></input>
+                        <button type="submit" onclick="getDataForId();">Mutasd</button><br>
+                        <strong>Név</strong> (kötelező, max 30 karakter): <input id="name2" type="text" max="30" required></input><br>
+                        <strong>Város</strong> (kötelező, max 30 karakter): <input id="city2" type="text" max="30" required></input><br>
+                        <Strong>Telefonszám</strong> (kötelező, max 30 karakter): <input id="phone2" type="text" max="30" required></input><br>
+                        <button id="gomb" type="submit" onclick="update();">Frissítés</button><br>
+                        <div id = 'updateResult'></div>      
+                        <hr>
+                    </div> 
+                    <div id = 'deleteDiv'>
+                        <h1>Törlés</h1>
+                        <strong>ID</strong> (kötelező): <input id="idDel" type="text" max="30" required></input><br> 
+                        <button id="gomb" type="submit" onclick="deleteF();">Törlés</button><br>
+                        <div id = 'deleteResult'></div>      
+                    </div>
+                </div> 
+            </div>
         </div>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>

@@ -148,22 +148,26 @@
             </div>
             <div>
                 <h2>Scaleable Vector Graphics</h2>
-                <svg height="130" width="500">
-                    <defs>
-                      <linearGradient id="grad1">
-                        <stop offset="0%" stop-color="yellow" />
-                        <stop offset="100%" stop-color="red" />
-                      </linearGradient>
-                    </defs>
-                    <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-                    <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
-                  </svg>
+                <svg width="250" height="100">
+                  <circle cx="100" cy="50" r="40" fill="salmon" />
+                  <polygon points="30,20 70,25 45,100" fill="salmon"/>
+                  <polygon points="130,25 170,20 155,100" fill="salmon"/>
+                  <ellipse cx="90" cy="45" rx="2" ry="4" fill="white" />
+                  <ellipse cx="110" cy="45" rx="2" ry="4" fill="white" />
+                </svg>
             </div>
             <div>
                 <h2>Server Sent Events</h2>
+                <div style="font-family:'Courier New', Courier, monospace;">
+                  <p>>"Can't use server scripting languages"</p>
+                  <p>>*Look inside*</p>
+                  <p>>Server Sent Events</p>
+                  <img src="lookinside.png" width="auto">
+              </div>
+              <div id="result"></div>
                 <script>
                   if(typeof(EventSource) !== "undefined") {
-                      var source = new EventSource("stocks.php");
+                      var source = new EventSource("sse.php");
                       source.onmessage = function(event) {
                           document.getElementById("result").innerHTML += event.data + "<br>";
                       };

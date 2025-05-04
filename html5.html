@@ -159,12 +159,17 @@
                     <text fill="#ffffff" font-size="45" font-family="Verdana" x="50" y="86">SVG</text>
                   </svg>
             </div>
-            <div style="font-family:'Courier New', Courier, monospace;">
+            <div>
                 <h2>Server Sent Events</h2>
-                <p>>"Can't use server scripting language"</p>
-                <p>>*Look inside*</p>
-                <p>>Server Sent Events</p>
-                <img src="lookinside.png" width="auto">
+                <script>
+                  if(typeof(EventSource) !== "undefined") {
+                      var source = new EventSource("stocks.php");
+                      source.onmessage = function(event) {
+                          document.getElementById("result").innerHTML += event.data + "<br>";
+                      };
+                  } else
+                      document.getElementById("result").innerHTML = "A böngésző nem támogatja a Server Sent Events API-t.";
+              </script>
             </div>
         </div>
         <footer>Kovács Hajnalka X6N9YO</footer>

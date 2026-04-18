@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="worldstyle.css">
+        <link type="text/css" rel="stylesheet" href="tstyle.css">
+        <link type="text/css" rel="stylesheet" href="crudstyle.css">
+        <title>Web programozás I Előadás Házi Feladat</title>
+        <style>
+            .nevsor a{
+                color:black;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Web-programozás-1 Előadás Házi feladat</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Főoldal</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="fetchapi.html">Fetch API</a></li>
+                <li><a href="oojs.html">OOJS</a></li>
+            </ul>
+        </nav>
+        <aside>
+            <h1>Táblázat</h1>
+        </aside>
+        <div>
+            <table id="kepzeslista">
+                <thead>
+                <tr> 
+                    <th>Azonosító</th>
+                    <th>Képzés neve</th>
+                    <th>Felvehető</th>
+                    <th>Minimum pont</th>
+                    <th>Műveltek</th>
+                </tr>
+                </thead>
+                <tbody class="nevsor" id="nevsor">
+                </tbody>
+            </table>
+            <div>
+                <form onsubmit="event.preventDefault();onFormSubmit();">
+                        <label>Azonosító:</label>
+                        <input type="text" name="az" id="az">
+                        <label>Képzés neve:</label>
+                        <input type="text" name="nev" id="nev">
+                        <label>Maximum létszám:</label>
+                        <input type="text" name="felveheto" id="felveheto">
+                        <label>Minimum pontszám:</label>
+                        <input type="text" name="min" id="min">
+                    </div>
+                    <div>
+                        <input type="submit" value="Hozzáad">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="crud.js"></script>
+        <footer>Kovács Hajnalka X6N9YO</footer>
+    </body>
+
+</html>

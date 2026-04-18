@@ -23,60 +23,31 @@
             <h1>OOJS</h1>
         </aside>
         <div>
-            <div>                
-                <h2>John Doe bankszámlája</h2>
-                <form onsubmit="Befizet1()">
-                    <label>Pénz befizetés</label>
-                    <input type="text" id="be1">
-                    <input type="submit" value="befizet">
-                </form>
-                <form onsubmit="Kifizet1()">
-                    <label>Pénz kifizetés</label>
-                    <input type="text" id="ki1">
-                    <input type="submit" value="kifizet">
-                </form>
-                <p>A jelenlegi egyenleg: <span id="show1"></span></p>
-                <input type="button" value="Mutasd" onclick="account1.getBalance('show1')">
-            </div>
-            <div>
-                <h2>Jane Smith bankszámlája</h2>
-                <form onsubmit="Befizet2()">
-                    <label>Pénz befizetés</label>
-                    <input type="text" id="be2">
-                    <input type="submit" value="befizet">
-                </form>
-                <form onsubmit="Kifizet2()">
-                    <label>Pénz kifizetés</label>
-                    <input type="text" id="ki2">
-                    <input type="submit" value="kifizet">
-                </form>
-                <p>A jelenlegi egyenleg: </p>
-                <span id="show2"></span>
-                <input type="button" value="Mutasd" onclick="account2.getBalance('show2');">
-            </div> 
+        <script type="text/javascript">
+        var myimage = new SubtitledImage("pelda.jpg", 200, 200, 100, 100, "Kép felirattal");
+    </script>
+    <table>
+        <tr>
+        <td align="right">x:</td><td><input type="text" id="x" name="x"></td>
+        <td align="right">y:</td><td><input type="text" id="y" name="y"></td>
+        <td><button onclick="myimage.putAt(x.value,y.value)">Put At</button></td>
+        </tr>
+        <tr>
+        <td align="right">width:</td><td><input type="text" id="width" name="width"></td>
+        <td align="right">height:</td><td><input type="text" id="height" name="height"></td>
+        <td><button onclick="myimage.resize(width.value,height.value)">Resize</button></td>
+        </tr>
+        <tr>
+        <td colspan="4"></td>
+        <td><button onclick="myimage.show()">Show</button></td>
+        </tr>
+        <tr>
+        <td colspan="4"></td>
+        <td><button onclick="myimage.hide()">Hide</button></td>
+        </tr>
+    </table>
+
         </div>
-        <script>
-            function Befizet1()
-            {
-                let osszeg=parseInt(document.getElementById("be1").value);
-                account1.deposit(osszeg);
-            }
-            function Kifizet1()
-            {
-                let osszeg=parseInt(document.getElementById("ki1").value);
-                account1.withdraw(osszeg);
-            }
-            function Befizet2()
-            {
-                let osszeg=parseInt(document.getElementById("be2").value);
-                account1.deposit(osszeg);
-            }
-            function Kifizet2()
-            {
-                let osszeg=parseInt(document.getElementById("ki2").value);
-                account1.withdraw(osszeg);
-            }
-        </script>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>
 

@@ -1,46 +1,63 @@
-class Bankszamla {
-    constructor(szamlaszam, tulaj, egyenleg = 0, storagekey=null) {
-      this.szamlaszam = szamlaszam;
-      this.tulaj = tulaj;
-      this.storagekey=storagekey;
-      this.egyenleg = this.loadBalance ?? egyenleg;
+class Image {
+    constructor(src, x, y, width, height) {
+        this.kep = document.createElement("img");
+        this.kep.src = src;
+        this.kep.style.position = "absolute";
+        this.kep.style.left = x+"px";
+        this.kep.style.top = y+"px";
+        this.kep.width = width;
+        this.kep.height = height;
+        document.body.appendChild(this.kep);
+    }
+    
+    show() {
+        this.kep.style.visibility = "visible";
+    }
+    
+    hide() {
+        this.kep.style.visibility = "hidden";
+    }
+    
+    putAt(x, y) {
+        this.kep.style.left = x+"px";
+        this.kep.style.top = y+"px";        
+    }
+    
+    resize(width, height) {
+        this.kep.width = width;
+        this.kep.height = height;    
+    }
+}
+
+class SubtitledImage extends Image {
+    constructor(src, x, y, width, height, subtitle) {
+        super(src, x, y, width, height);
+        this.subtitle = document.createElement("div");
+        this.subtitle.innerHTML = subtitle;
+        this.subtitle.style.position = "absolute";
+        this.subtitle.style.left = x+"px";
+        this.subtitle.style.top = (y+height)+"px";
+        document.body.appendChild(this.subtitle);
     }
 
-    saveBalance()
-    {
-      if(this.storagekey)
-      {
-        localStorage.setItem(this.storagekey, this.egyenleg);
-      }
+    show() {
+        super.show();
+        this.subtitle.style.visibility = "visible";
     }
-
-    loadBalance()
-    {
-      if(this.storagekey)
-      {
-        const val = localStorage.getItem(this.storagekey);
-        return val !== null ? parseInt(val) : null;
-      }
-      return null;
+    
+    hide() {
+        super.hide();
+        this.subtitle.style.visibility = "hidden";
     }
-  
-    deposit(osszeg) {
-      if (osszeg > 0) {
-        this.egyenleg += osszeg;
-        this.saveBalance();
-      }
+    
+    putAt(x, y) {
+        super.putAt(x, y);
+        this.subtitle.style.left = x+"px";
+        this.subtitle.style.top = (parseInt(y)+parseInt(this.kep.height))+"px";
     }
-  
-    withdraw(osszeg) {
-      if (osszeg > 0 && osszeg <= this.egyenleg) {
-        this.egyenleg -= osszeg;
-        this.saveBalance();
-      }
+    
+    resize(width, height) {
+        super.resize(width, height);
+        this.subtitle.style.top = (parseInt(this.kep.style.top)+parseInt(height))+"px";
     }
-    getBalance(spanid) {
-      id="\""+spanid+"\"";
-      document.getElementById(id).innerHTML=this.egyenleg;
-    }
-  } 
-const account1 = new Bankszamla("123456", 'John Doe', 1000, acct1);
-const account2 = new Bankszamla('789012', 'Jane Smith', 0, acct2);
+}

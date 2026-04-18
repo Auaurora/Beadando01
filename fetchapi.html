@@ -29,7 +29,7 @@
             <h1>Táblázat</h1>
         </aside>
         <div>
-            <table id="kepzeslista">
+            <table id="">
                 <thead>
                 <tr> 
                     <th>Azonosító</th>
@@ -39,13 +39,12 @@
                     <th>Műveltek</th>
                 </tr>
                 </thead>
-                <tbody class="nevsor" id="nevsor">
+                <tbody class="nevsor" id="kepzeslista">
                 </tbody>
             </table>
             <div>
-                <form onsubmit="event.preventDefault();onFormSubmit();">
-                        <label>Azonosító:</label>
-                        <input type="text" name="az" id="az">
+                <form onsubmit="event.preventDefault();onFormSubmit();" id="kepzesform">
+                        <input type="hidden" id="id">
                         <label>Képzés neve:</label>
                         <input type="text" name="nev" id="nev">
                         <label>Maximum létszám:</label>
@@ -59,7 +58,7 @@
                 </form>
             </div>
         </div>
-        <script src="crud.js"></script>
+        <script src="fetchapi.js"></script>
         <footer>Kovács Hajnalka X6N9YO</footer>
     </body>
 

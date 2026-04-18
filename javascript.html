@@ -29,27 +29,29 @@
             <h1>Táblázat</h1>
         </aside>
         <div>
-            <table>
-            <tr> 
-                <th>Vezetéknév</th>
-                <th>Keresztnév</th>
-                <th>Neptun kód</th>
-                <th>Gyakorlat időpontja</th>
-                <th>Műveltek</th>
-            </tr>
-            <tbody class="nevsor" id="nevsor">
-            </tbody>
+            <table id="kepzeslista">
+                <thead>
+                <tr> 
+                    <th>Azonosító</th>
+                    <th>Képzés neve</th>
+                    <th>Felvehető</th>
+                    <th>Minimum pont</th>
+                    <th>Műveltek</th>
+                </tr>
+                </thead>
+                <tbody class="nevsor" id="nevsor">
+                </tbody>
             </table>
             <div>
                 <form onsubmit="event.preventDefault();onFormSubmit();">
-                        <label>Vezetéknév:</label>
-                        <input type="text" name="vnev" id="vnev">
-                        <label>Keresztnév:</label>
-                        <input type="text" name="knev" id="knev">
-                        <label>Neptun kód:</label>
-                        <input type="text" name="nkod" id="nkod">
-                        <label>Gyakorlat időpontja:</label>
-                        <input type="text" name="ido" id="ido">
+                        <label>Azonosító:</label>
+                        <input type="text" name="az" id="az">
+                        <label>Képzés neve:</label>
+                        <input type="text" name="nev" id="nev">
+                        <label>Maximum létszám:</label>
+                        <input type="text" name="felveheto" id="felveheto">
+                        <label>Minimum pontszám:</label>
+                        <input type="text" name="min" id="min">
                     </div>
                     <div>
                         <input type="submit" value="Hozzáad">

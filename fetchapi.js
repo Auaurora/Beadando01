@@ -4,11 +4,9 @@ window.onload = function() {
     fetchKepzes();
 };
 function fetchKepzes() {
-    document.getElementById("addedit").innerHTML = "Add new user";
     fetch(api)
         .then(res => res.json())
         .then(data => {
-            document.getElementById("message").innerText += " "+data.status;
             let rows = "";
             data.readData.forEach(user => {
                 rows += `

@@ -8,18 +8,21 @@ function fetchKepzes() {
         .then(res => res.json())
         .then(data => {
             let rows = "";
-            data.readData.forEach(user => {
-                rows += `
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${user.nev}</td>
-                    <td>${user.felveheto}</td>
-                    <td>${user.min}</td>
-                    <td>
-                        <a onClick="editKepzes(${JSON.stringify(user)})">Edit</a> | <a onClick="deleteKepzes(${user.id})">Delete</a>
-                    </td>
-                </tr>`;
-            });
+data.readData.forEach(user => {
+    const userJson = JSON.stringify(user).replace(/"/g, '&quot;');
+
+    rows += `
+    <tr>
+        <td>${user.id}</td>
+        <td>${user.nev}</td>
+        <td>${user.felveheto}</td>
+        <td>${user.min}</td>
+        <td>
+            <a href="javascript:void(0)" onclick="editKepzes(${userJson})">Edit</a> | 
+            <a href="javascript:void(0)" onclick="deleteKepzes(${user.id})">Delete</a>
+        </td>
+    </tr>`;
+});
             document.getElementById("kepzeslista").innerHTML = rows;
         });
 }

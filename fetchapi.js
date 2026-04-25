@@ -16,8 +16,7 @@ function fetchKepzes() {
                     <td>${user.felveheto}</td>
                     <td>${user.min}</td>
                     <td>
-                        <button onclick='editUser(${JSON.stringify(user)})'>Edit</button>
-                        <button onclick='deleteUser(${user.id})'>Delete</button>
+                        <a onClick="editKepzes(${JSON.stringify(user)})">Edit</a> | <a onClick="deleteKepzes(${user.id})">Delete</a>
                     </td>
                 </tr>`;
             });
@@ -58,7 +57,7 @@ function editKepzes(user) {
     document.getElementById("min").value = user.min;
 }
 
-function deleteUser(id) {
+function deleteKepzes(id) {
     if (!confirm("Biztosan törölni kívánja??")) return;
     fetch(api, {
         method: "DELETE",

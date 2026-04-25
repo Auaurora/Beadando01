@@ -59,3 +59,21 @@ aside {
 div {
     padding: 50px;
 }
+
+.oojs-jobb {
+    flex: 2;
+    box-sizing: border-box;
+    margin: 20px;
+}
+.oojs-jobb {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#kep {
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}

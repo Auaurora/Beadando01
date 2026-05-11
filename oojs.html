@@ -29,25 +29,27 @@
         <td align="right">x:</td><td><input type="number" id="x" name="x"></td>
         <td align="right">y:</td><td><input type="number" id="y" name="y"></td>
         <td><button onclick="myimage.putAt(x.value,y.value)">Put At</button></td>
+        <td><button onclick="myimage.show()">Show</button></td>
         </tr>
         <tr>
         <td align="right">width:</td><td><input type="number" id="width" name="width"></td>
         <td align="right">height:</td><td><input type="number" id="height" name="height"></td>
         <td><button onclick="myimage.resize(width.value,height.value)">Resize</button></td>
-        </tr>
-        <tr>
-        <td colspan="4"></td>
-        <td><button onclick="myimage.show()">Show</button></td>
-        </tr>
-        <tr>
-        <td colspan="4"></td>
         <td><button onclick="myimage.hide()">Hide</button></td>
         </tr>
+        <tr>
+        <td colspan="1"></td>
+        <td><button onclick="myimage.newimage()">New image</button></td>
+        <td colspan="1"></td>
+        <td><button onclick="myimage.returntonormal()">Reset</button></td>
+        </tr>
+        <tr>
+        </tr>
     </table>
-                    
+                    <div class=""></div>
                 </div>
         <script type="text/javascript">
-        var myimage = new SubtitledImage("pelda.jpg", 600, 450, 100, 100, "Kép felirattal");
+        var myimage = new SubtitledImage("1.jpg", 600, 450, 100, 100, "Monkey Business");
     </script>
 
         </div>

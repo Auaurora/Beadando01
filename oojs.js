@@ -32,7 +32,7 @@ class Image {
 class SubtitledImage extends Image {
     constructor(src, x, y, width, height, subtitle) {
         super(src, x, y, width, height);
-        this.subtitle = document.createElement("div");
+        this.subtitle = document.createElement("span");
         this.subtitle.innerHTML = subtitle;
         this.subtitle.style.position = "absolute";
         this.subtitle.style.left = x+"px";
@@ -59,5 +59,20 @@ class SubtitledImage extends Image {
     resize(width, height) {
         super.resize(width, height);
         this.subtitle.style.top = (parseInt(this.kep.style.top)+parseInt(height))+"px";
+    }
+
+    newimage(){
+        let randomNum = Math.floor(Math.random() * 5) + 1;
+        this.kep.src = randomNum + ".jpg";
+        this.show();
+    }
+    returntonormal(x,y,width,height)
+    {
+        this.kep.style.left = 600 + "px";
+        this.kep.style.top = 450 +"px";
+        this.kep.width = 100;
+        this.kep.height = 100;
+        this.subtitle.style.top = (parseInt(this.kep.style.top)+parseInt(this.kep.height))+"px";
+        this.subtitle.style.left = 600 +"px";
     }
 }
